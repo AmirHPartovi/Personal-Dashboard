@@ -62,3 +62,22 @@ type Props = {
 }
 
 export default NestedList
+
+
+const sidebaritem =[
+  {label:'sent mail',
+  icon:<SendIcon/>  
+  },
+  {label:'Draft',
+  icon:<SendIcon/>  
+  },
+  {label:'Inbox',
+  icon:<SendIcon/>  
+  },
+  {label:'sent mail',
+  icon:<SendIcon/>  
+  },
+  {label:'sent mail',
+  icon:<SendIcon/>  
+  },
+]
