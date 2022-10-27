@@ -2,14 +2,20 @@ import React from 'react'
 import SideBar from './SideBar'
 import Header from './Header'
 import {Outlet} from 'react-router-dom'
-type Props = {}
+import {useState} from 'react'
+type Props = {
+ 
+
+}
 
 const Main = (props: Props) => {
+  const [open,setOpen] = useState(false)
   return (
     <div>
-        <Header/>
-        <SideBar/>
+        <Header open={open} setOpen={setOpen}/>
+        <SideBar open={open}/>
         <main>
+          
             <Outlet/>
         </main>
     </div>
