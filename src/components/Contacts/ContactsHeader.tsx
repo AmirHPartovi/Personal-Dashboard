@@ -34,7 +34,7 @@ const handleFilter= (e:any) =>{
         </Grid>
         <Grid>
           <Button variant='outlined' onClick={handleShowSearchArea}><SearchIcon/>SEARCH</Button>
-          <Link to={'/AddNewContact'}>
+          <Link to={"/addcontact"}>
           <Button variant={'outlined'} sx={{borderRadius:1, margin:2 ,textDecoration:'none'}}>
              <AddIcon/><Typography>ADD CONTACT</Typography>
           </Button>

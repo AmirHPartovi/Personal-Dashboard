@@ -74,7 +74,7 @@ const ContactsTable=({ setSearch,search,filter}:props)=> {
                 <Checkbox onClick={()=>handleFavorite(contact.id)} color='error' icon={<FavoriteBorder />} checkedIcon={<Favorite/>} checked={contact.favorite} />
               </TableCell>
               <TableCell align="left">
-              <Link to={'/ContactInfo/${contact.id}'}>
+              <Link to={`/updateContact/${contact.id}`}>
                 <Button variant='outlined'>
                    <InfoIcon/> INFO
                 </Button>
