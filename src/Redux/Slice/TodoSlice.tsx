@@ -15,24 +15,23 @@ export const todoSlice = createSlice({
     initialState,
     reducers: {
         addTodo: (state, action) => {
-            const payload = action.payload
-            //payload => title
-            state.push({id: Math.floor(Math.random() * 1000), title: payload, status: false})
+            const {payload} = action
+            state.push(payload)
         },
         deleteTodo: (state, action) => {
             //payload => id
-            const payload = action.payload
+            const {payload} = action.payload
             const index = state.findIndex(todo => todo.id === payload)
             state.splice(index, 1)
         },
         updateTodo: (state, action) => {
             //payload => {id:122,title:'asdsad',status:false}
-            const payload = action.payload
+            const {payload} = action.payload
             const index = state.findIndex(todo => todo.id === payload.id)
             state[index] = payload
         },
         checkTodo:(state,action)=>{
-            const {payload} = action.payload
+            const {payload} = action
             const index = state.findIndex( state => state.id === payload)
             state[index].status = (! state[index].status)
         }

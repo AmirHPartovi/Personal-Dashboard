@@ -23,7 +23,7 @@ type Props = {}
 
 const Todo = (props: Props) => {
 const [state,setState] = useState('ADD')
-const [form,setForm]=useState('')
+const [form,setForm]=useState({id: Math.floor(Math.random() * 1000), title:'', status: false})
 const [filter,setFilter]=useState('')
 const [search,setSearch]=useState('')
 const todos = useSelector((state:any)=>state.todo)
@@ -48,7 +48,7 @@ const handleDeleteTodo = (id:number) =>{
 }
 const handleUpdateTodo = (todo:any) =>{
     setState('UPDATE')
-    setForm(todo.title)
+    setForm(todo)
 }
 const handleTodo = (id:number) =>{
     dispatch(checkTodo(id))
@@ -83,7 +83,7 @@ const handleFilter = (e:any) =>{
 
       <Grid>
         <form onSubmit={handleSubmitTodo}>
-        <TextField onChange={handleChangeTodo} variant='outlined' name='title' value={form} label={`${state} TODO`}sx={{m:2}}></TextField>
+        <TextField onChange={handleChangeTodo} variant='outlined' name='title' value={form.title} label={`${state} TODO`}sx={{m:2}}></TextField>
         <Button type={'submit'} variant={'contained'} color={'success'}sx={{m:2}}>{state}</Button>
         </form>
       </Grid>
