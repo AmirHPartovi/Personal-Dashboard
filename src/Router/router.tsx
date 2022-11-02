@@ -2,8 +2,8 @@ import React from 'react'
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../components/Layout/DashBoardLayout/Main';
 import {Suspense} from 'react'
-const Dashboard=React.lazy(()=>import('../Pages/Dashboard')) ;
-const Table= React.lazy(()=>import( '../Pages/Table/Table'));
+const Contacts=React.lazy(()=>import('../Pages/Contacts')) ;
+const Todo= React.lazy(()=>import( '../Pages/Todo'));
 const router =createBrowserRouter([{
     path:"/",
     element:<Layout/>,
@@ -12,15 +12,15 @@ const router =createBrowserRouter([{
             index:true,
             element:(
                 <React.Suspense fallback={<div>Loading...</div>}>
-                    <Dashboard/>
+                    <Contacts/>
                 </React.Suspense>
             )
         },
         {
-            path:"/table",
+            path:"/todo",
             element:(
                 <React.Suspense fallback={<div>Loading...</div>}>
-                    <Table/>
+                    <Todo/>
                 </React.Suspense>
             )
 

@@ -14,7 +14,7 @@ const Main = (props: Props) => {
     <div>
         <Header open={open} setOpen={setOpen}/>
         <SideBar open={open}/>
-        <main>
+        <main style={{}}>
           
             <Outlet/>
         </main>

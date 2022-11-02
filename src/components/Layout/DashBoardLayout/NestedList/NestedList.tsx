@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Link} from 'react-router-dom'
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -11,6 +12,9 @@ import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
+import ContactsIcon from '@mui/icons-material/Contacts';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+
 type Props = {
   open:boolean
 }
@@ -24,39 +28,28 @@ type Props = {
       aria-labelledby="nested-list-subheader"
       subheader={
         <ListSubheader component="div" id="nested-list-subheader">
-          Nested List Items
+          List Items
         </ListSubheader>
       }
     >
+      <Link to={'/'}>
       <ListItemButton>
         <ListItemIcon>
-          <SendIcon />
+          <ContactsIcon/>
         </ListItemIcon>
-        <ListItemText primary="Sent mail" />
+        <ListItemText  primary="Contacts" />
       </ListItemButton>
+      </Link>
+      <Link to={'/todo'}>
       <ListItemButton>
         <ListItemIcon>
-          <DraftsIcon />
+          <CheckBoxIcon/>
         </ListItemIcon>
-        <ListItemText primary="Drafts" />
+        <ListItemText primary="Todo" />
       </ListItemButton>
-      <ListItemButton>
-        <ListItemIcon>
-          <InboxIcon />
-        </ListItemIcon>
-        <ListItemText primary="Inbox" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary="Starred" />
-          </ListItemButton>
-        </List>
-      </Collapse>
+      </Link>
+
+      
     </List>
   );
 }

@@ -27,7 +27,7 @@ const Header = ({setOpen,open}: Props) => {
             <MenuIcon fontSize='large' sx={{color:'white'}}/>
           </IconButton>
           <Typography variant={'h4'} component={'h1'}>
-            {'Shopify'}
+            {'Personal Dashboard'}
           </Typography>
           <Box display={'flex'} flexGrow={1} justifyContent={'flex-end'}>
           <IconButton>
