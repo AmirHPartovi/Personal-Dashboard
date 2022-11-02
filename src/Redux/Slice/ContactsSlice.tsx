@@ -8,9 +8,7 @@ const initialState =[
     {id:4 , name:'farzin' ,age:25 , email:'farzin@example.com' , number:'09123456789' ,favorite:true ,country:'iran'},
     {id:5 , name:'mohammad' ,age:48 , email:'mohammad@example.com' , number:'09123456789' ,favorite:true ,country:'iran'}
   ]
-type props= {
- 
-}
+
 export const ContactsSlice = createSlice({
     
     name: 'contacts',

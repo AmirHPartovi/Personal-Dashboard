@@ -5,7 +5,7 @@ import { Favorite , FavoriteBorder} from '@mui/icons-material'
 import { useState } from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import { useDispatch,useSelector} from 'react-redux'
-import { addContact } from '../Redux/Slice/ContactsSlice'
+import { addContact ,updateContact} from '../Redux/Slice/ContactsSlice'
 import { Link } from 'react-router-dom'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import {useNavigate, useParams} from "react-router-dom";
@@ -36,7 +36,14 @@ const AddNewContact = (props:props) => {
   }
   const handleFormSubmit = (e:any) =>{
     e.preventDefault()
-    dispatch(addContact(form))
+    if(state==='UPDATE'){
+        dispatch(updateContact(form))
+        setState('ADD')
+        
+    }else{
+        dispatch(addContact(form))
+       
+    }
     clearForm()
     navigate("/")
   }

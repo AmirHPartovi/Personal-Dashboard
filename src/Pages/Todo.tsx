@@ -23,7 +23,8 @@ type Props = {}
 
 const Todo = (props: Props) => {
 const [state,setState] = useState('ADD')
-const [form,setForm]=useState({id: Math.floor(Math.random() * 1000), title:'', status: false})
+const emptyform ={id: Math.floor(Math.random() * 1000), title:'', status: false}
+const [form,setForm]=useState(emptyform)
 const [filter,setFilter]=useState('')
 const [search,setSearch]=useState('')
 const todos = useSelector((state:any)=>state.todo)
@@ -31,16 +32,17 @@ const dispatch =useDispatch()
 
 
 const handleChangeTodo = (e:any) =>{
-    setForm(e.target.value)
+    setForm({...form,[e.target.name]:e.target.value})
 }
 const handleSubmitTodo =(e:any)=>{
     e.preventDefault()
     if(state==='UPDATE'){
         dispatch(updateTodo(form))
         setState('ADD')
-        
-    }else{dispatch(addTodo(form))
-       
+        setForm(emptyform)
+    }else{
+        dispatch(addTodo(form))
+       setForm(emptyform)
     }
 }
 const handleDeleteTodo = (id:number) =>{
