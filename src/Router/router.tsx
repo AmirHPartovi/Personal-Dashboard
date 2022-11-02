@@ -33,6 +33,13 @@ const router =createBrowserRouter([{
                     <AddNewContact/>
                 </React.Suspense>)
         },
+        {
+            path:"/contactinfo/:ContactId",
+            element:(
+                <React.Suspense fallback={<div>Loading...</div>}>
+                    <AddNewContact/>
+                </React.Suspense>)
+        },
     ],
 }]);
 

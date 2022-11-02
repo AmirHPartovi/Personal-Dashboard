@@ -4,15 +4,19 @@ import { Grid , Button , TextField ,Typography,Checkbox} from '@mui/material'
 import { Favorite , FavoriteBorder} from '@mui/icons-material'
 import { useState } from 'react'
 import AddIcon from '@mui/icons-material/Add';
-import { useDispatch } from 'react-redux'
+import { useDispatch,useSelector} from 'react-redux'
 import { addContact } from '../Redux/Slice/ContactsSlice'
 import { Link } from 'react-router-dom'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import {useNavigate, useParams} from "react-router-dom";
 type props ={
 
 }
 const AddNewContact = (props:props) => {
-
+    const [state, setState] = useState('ADD')
+    const contacts = useSelector((state:any) => state.contacts)
+    const {ContactId} = useParams()
+    const navigate = useNavigate()
   const emptyForm={
     id:Math.floor(Math.random()*1000) ,
      name:'' ,
@@ -34,6 +38,7 @@ const AddNewContact = (props:props) => {
     e.preventDefault()
     dispatch(addContact(form))
     clearForm()
+    navigate("/")
   }
   const clearForm = () =>{
     setForm(emptyForm)
@@ -43,12 +48,19 @@ const AddNewContact = (props:props) => {
       clearForm()
     } 
   },[])
+  useEffect(() => {
+    const c = contacts.filter((contact:any) => contact.id === Number(ContactId))[0]
+    if (c) {
+        setForm(c)
+        setState('UPDATE')
+    }
+}, [])
   return (
     <Grid container alignItems={'center'} direction={'column'}>
       <Grid container direction={'row'} justifyContent={'space-around'} mt={8}>
         <Grid>
           <Typography variant={'h4'} sx={{m:2}}>
-            ADD NEW CONTACT
+            {state} CONTACT
           </Typography>
         </Grid>
         <Grid>
@@ -70,7 +82,7 @@ const AddNewContact = (props:props) => {
         </Grid>
         <Grid container justifyContent={'flex-end'}>
         <Button type='submit' variant='contained' color='success'>
-          <AddIcon/>ADD CONTACT
+          <AddIcon/>{state}
         </Button>
         </Grid>
        </form>

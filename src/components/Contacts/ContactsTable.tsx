@@ -14,6 +14,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import { deleteContact, changeFavorite } from '../../Redux/Slice/ContactsSlice'
 import { FavoriteBorder , Favorite } from '@mui/icons-material'
+import SyncIcon from '@mui/icons-material/Sync';
 
 type props={
     setSearch:React.Dispatch<React.SetStateAction<string>>,
@@ -74,9 +75,9 @@ const ContactsTable=({ setSearch,search,filter}:props)=> {
                 <Checkbox onClick={()=>handleFavorite(contact.id)} color='error' icon={<FavoriteBorder />} checkedIcon={<Favorite/>} checked={contact.favorite} />
               </TableCell>
               <TableCell align="left">
-              <Link to={`/updateContact/${contact.id}`}>
+              <Link to={`/contactinfo/${contact.id}`}>
                 <Button variant='outlined'>
-                   <InfoIcon/> INFO
+                   <SyncIcon/> UPDATE
                 </Button>
                 </Link>
             </TableCell>
