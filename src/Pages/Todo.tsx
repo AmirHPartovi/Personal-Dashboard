@@ -115,7 +115,7 @@ const handleFilter = (e:any) =>{
               <Checkbox onClick={()=>handleTodo(todo.id)} color={'secondary'}  checked={todo.status} />
               </TableCell>
                 
-              <TableCell align="left">{todo.title}</TableCell>
+              <TableCell align="left"><Typography sx={todo.status?{textDecoration:'line-through'}:{textDecoration:'none'}}>{todo.title}</Typography></TableCell>
               
               
               <TableCell align="left">
