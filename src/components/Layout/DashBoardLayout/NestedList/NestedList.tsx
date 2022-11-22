@@ -32,20 +32,20 @@ type Props = {
         </ListSubheader>
       }
     >
-      <Link to={'/'}>
+      <Link to={'/'} style={{textDecoration:'none'}}>
       <ListItemButton>
         <ListItemIcon>
           <ContactsIcon/>
         </ListItemIcon>
-        <ListItemText  primary="Contacts" />
+        <ListItemText  secondary="Contacts" />
       </ListItemButton>
       </Link>
-      <Link to={'/todo'}>
+      <Link to={'/todo'}style={{textDecoration:'none'}}>
       <ListItemButton>
         <ListItemIcon>
           <CheckBoxIcon/>
         </ListItemIcon>
-        <ListItemText primary="Todo" />
+        <ListItemText secondary="Todo" />
       </ListItemButton>
       </Link>
 
