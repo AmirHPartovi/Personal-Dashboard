@@ -34,14 +34,14 @@ const handleFilter= (e:any) =>{
         </Grid>
         <Grid>
           <Button variant='outlined' onClick={handleShowSearchArea}><SearchIcon/>SEARCH</Button>
-          <Link to={"/addcontact"}>
+          <Link style={{textDecoration:'none'}} to={"/addcontact"}>
           <Button variant={'outlined'} sx={{borderRadius:1, margin:2 ,textDecoration:'none'}}>
              <AddIcon/><Typography>ADD CONTACT</Typography>
           </Button>
           </Link>
-          <FormControl sx={{width:140 ,margin:2}}>
-         <InputLabel >Filter Favorite</InputLabel>
-          <Select>
+          <FormControl sx={{margin:2}}>
+         <InputLabel sx={{top:-10}} >Filter Favorite</InputLabel>
+          <Select sx={{height:38, width:148}}>
             <MenuItem onClick={()=>handleFilter(undefined)} >All Contacts</MenuItem>
             <MenuItem onClick={()=>handleFilter(false)}>Favorite Contacts</MenuItem>
             <MenuItem onClick={()=>handleFilter(true)} >UnFavorite Contacts</MenuItem>

@@ -46,7 +46,7 @@ const ContactsTable=({ setSearch,search,filter}:props)=> {
             <TableCell align="left">EMAIL</TableCell>
             <TableCell align="left">AGE</TableCell>
             <TableCell align="left">COUNTRY</TableCell>
-            <TableCell align="left">FAVORITEI</TableCell>
+            <TableCell align="left">FAVORITE</TableCell>
             <TableCell align="left">INFO</TableCell>
             <TableCell align="left">DELETE</TableCell>
           </TableRow>
@@ -75,7 +75,7 @@ const ContactsTable=({ setSearch,search,filter}:props)=> {
                 <Checkbox onClick={()=>handleFavorite(contact.id)} color='error' icon={<FavoriteBorder />} checkedIcon={<Favorite/>} checked={contact.favorite} />
               </TableCell>
               <TableCell align="left">
-              <Link to={`/contactinfo/${contact.id}`}>
+              <Link style={{textDecoration:'none'}} to={`/contactinfo/${contact.id}`}>
                 <Button variant='outlined'>
                    <SyncIcon/> UPDATE
                 </Button>

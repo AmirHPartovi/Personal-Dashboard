@@ -63,17 +63,24 @@ const handleFilter = (e:any) =>{
 }
   return (
     <Grid container alignItems={'center'} direction={'column'}>
-    <Grid container direction={'row'} justifyContent={'space-around'} mt={10}>
-      <Grid>
+    <Grid container direction={'row'} justifyContent={'space-around'} alignItems={'center'} mt={10}>
+      <Grid item xs={12} md={4} alignItems={'center'} justifyContent={'center'}>
         <Typography variant={'h4'} sx={{m:2}}>
            TODO
         </Typography>
       </Grid>
-      <Grid>
-        <TextField variant='outlined' onChange={handleSearchTodo} label={'Search'} ></TextField>
+      <Grid item xs={12}md={4} alignItems={'center'} justifyContent={'center'}>
+        <form onSubmit={handleSubmitTodo}>
+        <TextField onChange={handleChangeTodo} variant='outlined' name='title' value={form.title} label={`${state} TODO`}sx={{m:2}}></TextField>
+        <Button type={'submit'} variant={'contained'} color={'success'}sx={{m:2}}>{state}</Button>
+        </form>
       </Grid>
-      <Grid>
-      <FormControl sx={{width:140 ,margin:2}}>
+      <Grid container item alignItems={'center'} xs={12}md={4}>
+        <Grid item xs={6}>
+         <TextField variant='outlined' onChange={handleSearchTodo} label={'Search'} ></TextField>
+        </Grid>
+        <Grid item xs={6}>
+        <FormControl sx={{width:140 ,margin:2}}>
          <InputLabel >Filter Favorite</InputLabel>
           <Select>
             <MenuItem onClick={()=>handleFilter(undefined)} >All TODOs</MenuItem>
@@ -81,14 +88,11 @@ const handleFilter = (e:any) =>{
             <MenuItem onClick={()=>handleFilter(true)} >NOT DONE TODOs</MenuItem>
           </Select>
         </FormControl>
+        </Grid>
+      
       </Grid>
 
-      <Grid>
-        <form onSubmit={handleSubmitTodo}>
-        <TextField onChange={handleChangeTodo} variant='outlined' name='title' value={form.title} label={`${state} TODO`}sx={{m:2}}></TextField>
-        <Button type={'submit'} variant={'contained'} color={'success'}sx={{m:2}}>{state}</Button>
-        </form>
-      </Grid>
+      
       
     </Grid>
     <Grid>

@@ -34,6 +34,10 @@ const AddNewContact = (props:props) => {
     
     setForm({...form,[e.target.name]:e.target.value})
   }
+  const handleFormChangeFavorite = (favorite:boolean) =>{
+    
+    setForm({...form,favorite:(!favorite)})
+  }
   const handleFormSubmit = (e:any) =>{
     e.preventDefault()
     if(state==='UPDATE'){
@@ -85,7 +89,7 @@ const AddNewContact = (props:props) => {
         <TextField onChange={handleFormChange} type={'text'} value={form.country} name='country' label={'Country'} sx={{m:2}} ></TextField>
         <Grid item container direction={'row'} justifyContent={'flex-start'} >
             <Typography variant='h6' sx={{m:2}}>Favorite:</Typography>
-            <Checkbox onChange={handleFormChange} name='favorite' value={form.favorite}  icon={<FavoriteBorder fontSize={'large'} />} checked={form.favorite} checkedIcon={<Favorite fontSize={'large'} />} color="error"  sx={{m:2}} />
+            <Checkbox onClick={()=>handleFormChangeFavorite(form.favorite)} name='favorite' value={form.favorite}  icon={<FavoriteBorder fontSize={'large'} />}  checkedIcon={<Favorite fontSize={'large'} />} color="error"  sx={{m:2}} />
         </Grid>
         <Grid container justifyContent={'flex-end'}>
         <Button type='submit' variant='contained' color='success'>
